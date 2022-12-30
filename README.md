@@ -1,2 +1,3 @@
-# odin-project-rock-paper-scissors
+# Introduction
  
+We’re going to make a simple implementation of grade-school classic “rock paper scissors”. If you don’t know what that is check the <a href="https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors" target="_blank" rel="noopener noreferrer">Wikipedia article</a> or <a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors" target="_blank" rel="noopener noreferrer">this</a> detailed step-by-step. For the moment we’re just going to play the game from the browser console, but <strong>we will revisit this project in a later lesson and add a Graphical User Interface with buttons and text,</strong> so don’t forget to keep the code on GitHub!
