@@ -18,43 +18,50 @@ function playRound(playerSelection, computerSelection) {
     computerSelection[0].toUpperCase() +
     computerSelection.slice(1).toLowerCase();
 
-  const index = dict[playerSelection.toLowerCase()].indexOf(
+  const code = dict[playerSelection.toLowerCase()].indexOf(
     computerSelection.toLowerCase()
   );
-  switch (index) {
+
+  switch (code) {
     case 0:
-      return `You Win! ${player} beats ${computer}`;
+      return {
+        code,
+        message: `You Win! ${player} beats ${computer}`,
+      };
     case 1:
-      return `Draw!`;
+      return {
+        code,
+        message: `Draw!`,
+      };
     case 2:
-      return `You Lose! ${computer} beats ${player}`;
+      return {
+        code,
+        message: `You Lose! ${computer} beats ${player}`,
+      };
     default:
-      return "Unknown";
+      return null;
   }
 }
 
-function game() {
-  const symbols = {
-    r: "Rock",
-    p: "Paper",
-    s: "Scissors",
-  };
-
-  for (let i = 0; i < 5; i++) {
-    const playerChoice = prompt("Your choice: [R]ock | [P]aper | [S]icssors");
-    if (!playerChoice) {
-      console.log("Invalid input!");
-    } else if (!symbols.hasOwnProperty(playerChoice.toLocaleLowerCase())) {
-      console.log("Invalid input!");
-    } else {
-      const computerSelection = getComputerChoice();
-      const result = playRound(
-        symbols[playerChoice.toLocaleLowerCase()],
-        computerSelection
-      );
-      console.log(result);
-    }
-  }
+function game(playerChoice) {
+  const computerSelection = getComputerChoice();
+  const result = playRound(playerChoice, computerSelection);
+  return result;
 }
 
-game();
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const result = game(button.id);
+    const backgroundColors = [
+      "background-color: green",
+      "background-color: yellow",
+      "background-color: red",
+    ];
+    const resultDiv = document.querySelector("#result");
+    const resultContainer = document.querySelector("#result-container");
+    resultDiv.textContent = result.message;
+    resultContainer.style[backgroundColors[result.code]];
+  });
+});
