@@ -1,0 +1,35 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttons {
+    margin: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    width: 120px;
+    max-width: 120px;
+    height: 60px;    
+    font-size: 1rem;
+}
+
+#result-container {
+    width: 400px;
+    max-width: 400px;    
+    height: 120px;   
+    display: flex;         
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
